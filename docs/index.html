@@ -1,47 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vFutsal Manager - Uskoro</title>
+    <!-- Uvoz masivnog, oštrog fonta s Google Fonts koji odgovara vFM stilu s logotipa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Impact&display=swap" rel="stylesheet">
     <style>
-        /* Osnovni reset i font */
+        /* Reset i osnovne postavke pozadine prema logu */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #121212; /* Tamna tema prilagođena igrama */
-            color: #ffffff;
+            /* Gradijent preuzet izravno s logotipa: jarko crvena u tamno crni/bordo ton */
+            background: linear-gradient(135deg, #c31432 0%, #240b15 100%);
+            color: #f4f3ef; /* Prljavo bijela / boja slonovače s logotipa */
+            font-family: 'Oswald', sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* Header stilovi */
+        /* Header s prozirnom tamnom pozadinom da gradijent diše */
         header {
             width: 100%;
-            padding: 20px 40px;
-            background-color: #1a1a1a;
-            border-bottom: 2px solid #00ff66; /* Futsal/nogometna zelena boja za detalj */
+            padding: 25px 40px;
+            background-color: rgba(18, 5, 11, 0.6);
+            backdrop-filter: blur(5px);
+            border-bottom: 3px solid #12050b;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            color: #f4f3ef;
+            display: inline-block;
         }
 
+        /* Isticanje malog 'v' */
         .logo span {
-            color: #00ff66; /* "v" u nazivu će biti zeleno */
+            color: #f4f3ef;
+            font-size: 1.4rem;
+            vertical-align: super;
+            margin-right: 1px;
+            font-weight: 500;
         }
 
-        /* Glavni sadržaj po sredini */
+        /* Glavni sadržaj na sredini */
         main {
             flex: 1;
             display: flex;
@@ -49,26 +62,51 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            position: relative;
         }
 
+        /* Kontejner za natpis s blagom sjenom za dubinu */
+        .coming-soon-box {
+            background: rgba(18, 5, 11, 0.4);
+            padding: 40px 60px;
+            border-radius: 4px;
+            border: 1px solid rgba(244, 243, 239, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Veliki upečatljivi COMING SOON natpis inspiriran vFM fontom */
         .coming-soon-box h1 {
-            font-size: 4rem;
-            font-weight: 900;
+            font-family: 'Impact', 'Oswald', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 10px;
-            text-shadow: 0px 4px 20px rgba(0, 255, 102, 0.2);
+            line-height: 1;
+            color: #f4f3ef;
+            /* Jaka, oštra crna sjena iza teksta kakva je na logu */
+            text-shadow: 5px 5px 0px #12050b;
+            margin-bottom: 15px;
         }
 
         .coming-soon-box p {
-            color: #aaaaaa;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(244, 243, 239, 0.7);
+            font-weight: 500;
         }
 
-        /* Prilagodba za mobitele */
-        @media (max-width: 600px) {
+        /* Responzivnost za mobilne ekrane */
+        @media (max-width: 768px) {
             .coming-soon-box h1 {
-                font-size: 2.5rem;
+                font-size: 3.5rem;
+                text-shadow: 3px 3px 0px #12050b;
+            }
+            .coming-soon-box {
+                padding: 30px 20px;
+                background: none;
+                box-shadow: none;
+                border: none;
             }
             header {
                 text-align: center;
