@@ -1,1 +1,94 @@
 
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vFutsal Manager - Uskoro</title>
+    <style>
+        /* Osnovni reset i font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212; /* Tamna tema prilagođena igrama */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header stilovi */
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #00ff66; /* Futsal/nogometna zelena boja za detalj */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #00ff66; /* "v" u nazivu će biti zeleno */
+        }
+
+        /* Glavni sadržaj po sredini */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .coming-soon-box h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 0px 4px 20px rgba(0, 255, 102, 0.2);
+        }
+
+        .coming-soon-box p {
+            color: #aaaaaa;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Prilagodba za mobitele */
+        @media (max-width: 600px) {
+            .coming-soon-box h1 {
+                font-size: 2.5rem;
+            }
+            header {
+                text-align: center;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><span>v</span>Futsal Manager</div>
+    </header>
+
+    <main>
+        <div class="coming-soon-box">
+            <h1>COMING SOON</h1>
+            <p>Pripremite se za novu faza futsal menadžmenta.</p>
+        </div>
+    </main>
+
+</body>
+</html>
