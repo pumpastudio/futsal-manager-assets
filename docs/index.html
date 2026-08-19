@@ -1,132 +1,532 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vFutsal Manager</title>
-    <!-- Uvoz masivnog, oštrog fonta s Google Fonts koji odgovara vFM stilu s logotipa -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Impact&display=swap" rel="stylesheet">
-    <style>
-        /* Reset i osnovne postavke pozadine prema logu */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vFutsal Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: #242422; overflow-x: hidden; }
 
-        body {
-            /* Gradijent preuzet izravno s logotipa: jarko crvena u tamno crni/bordo ton */
-            background: linear-gradient(135deg, #c31432 0%, #240b15 100%);
-            color: #f4f3ef; /* Prljavo bijela / boja slonovače s logotipa */
-            font-family: 'Oswald', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
+  /* ---------- sticky navbar ---------- */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(36, 36, 34, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 64px;
+    transition: background-color 0.12s linear;
+  }
+  .navbar .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .navbar .logo {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+  .navbar .btn {
+    background: #e25261;
+    color: #fff7e6;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .navbar .btn:hover {
+    background: #fff7e6;
+    color: #e25261;
+  }
+  .navbar .btn .download-icon {
+    width: 12px;
+    height: 20px;
+    display: block;
+    transition: filter 0.3s;
+  }
+  .navbar .btn:hover .download-icon {
+    filter: brightness(0) saturate(100%) invert(44%) sepia(52%) saturate(1350%) hue-rotate(312deg) brightness(91%) contrast(91%);
+  }
 
-        /* Header s prozirnom tamnom pozadinom da gradijent diše */
-        header {
-            width: 100%;
-            padding: 25px 40px;
-            background-color: rgba(18, 5, 11, 0.6);
-            backdrop-filter: blur(5px);
-            border-bottom: 3px solid #12050b;
-        }
+  /* ---------- one continuous gradient wrapper ---------- */
+  .gradient-wrap {
+    background: linear-gradient(225deg, #8a254b 0%, #455bb4 100%);
+  }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #f4f3ef;
-            display: inline-block;
-        }
+  /* ---------- hero ---------- */
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 114px;
+    min-height: 100vh;
+  }
+  .hero-text {
+    max-width: 767px;
+    color: #fff7e6;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 0 1 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text h1 {
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 1;
+    max-width: 600px;
+  }
+  .hero-text p.sub {
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  .hero-buttons { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .hero-text > .hero-buttons { margin-top: 64px; }
+  .play-now {
+    background: #e25261; color: #fff7e6; font-weight: 700; font-size: 24px;
+    height: auto; padding: 16px 24px; border-radius: 16px; text-decoration: none; display: inline-flex; align-items: center; border: none; cursor: pointer;
+    transition: 0.3s;
+  }
+  .play-now:hover {
+    background: #fff7e6;
+    color: #e25261;
+  }
+  .google-play img { height: 62px; width: auto; display: block; object-fit: contain; }
+  .manager-illustration {
+    width: 560px;
+    max-width: 47vw;
+    height: auto;
+    align-self: flex-start;
+    margin-left: -140px;
+    transform: scale(1.05);
+    transform-origin: right center;
+    position: relative;
+    z-index: 2;
+  }
 
-        /* Isticanje malog 'v' */
-        .logo span {
-            color: #f4f3ef;
-            font-size: 1.4rem;
-            vertical-align: super;
-            margin-right: 1px;
-            font-weight: 500;
-        }
+  /* ---------- feature sections container (auto horizontal motion on scroll) ---------- */
+  .features-scroll-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .features-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    transition: transform 0.12s linear;
+  }
+  .features-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  .features-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
 
-        /* Glavni sadržaj na sredini */
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-        }
+  /* ---------- feature sections (shared device mockup) ---------- */
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 200px 114px 80px;
+    min-width: 100vw;
+    flex-shrink: 0;
+  }
+  .feature .device {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+  .feature-image {
+    width: min(560px, 60vw);
+    height: auto;
+    align-self: flex-start;
+    display: block;
+  }
+  .device {
+    position: relative;
+    width: 321px;
+    height: 651.106px;
+    transform: rotate(-90deg) scale(0.72);
+    transform-origin: center;
+    margin-left: 74px;
+    flex: none;
+  }
+  .device img.layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .device .screen {
+    position: absolute; top: 0.82%; left: 5.79%; right: 5.79%; bottom: 0.82%;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .device .screen img { width: 100%; transform: rotate(90deg); border-radius: 18px; }
 
-        /* Kontejner za natpis s blagom sjenom za dubinu */
-        .coming-soon-box {
-            background: rgba(18, 5, 11, 0.4);
-            padding: 40px 60px;
-            border-radius: 4px;
-            border: 1px solid rgba(244, 243, 239, 0.1);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        }
+  .feature h2 {
+    text-align: right; color: #fff7e6; font-weight: 800; font-size: 64px; line-height: 1.05;
+    max-width: none; width: 100%; align-self: flex-end;
+  }
+  .feature h2 .accent { color: #e25261; }
 
-        /* Veliki upečatljivi COMING SOON natpis inspiriran vFM fontom */
-        .coming-soon-box h1 {
-            font-family: 'Impact', 'Oswald', sans-serif;
-            font-size: 5.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            line-height: 1;
-            color: #f4f3ef;
-            /* Jaka, oštra crna sjena iza teksta kakva je na logu */
-            text-shadow: 5px 5px 0px #12050b;
-            margin-bottom: 15px;
-        }
+  /* ---------- footer CTA ---------- */
+  .footer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 114px 80px 114px 114px;
+    flex-wrap: wrap;
+  }
+  .footer-cta .copy {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-cta h2 {
+    color: #fff7e6;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 1.15;
+  }
+  .footer-phone {
+    width: 600px;
+    max-width: 60vw;
+    height: auto;
+    transform: rotate(0deg);
+    margin-left: -60px;
+    margin-right: -30px;
+    position: relative;
+    z-index: 2;
+  }
 
-        .coming-soon-box p {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: rgba(244, 243, 239, 0.7);
-            font-weight: 500;
-        }
+  /* ---------- bottom legal bar ---------- */
+  .legal-bar {
+    background: #242422;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 114px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .legal-bar .logo { height: 40px; width: auto; }
+  .legal-right { display: flex; align-items: center; gap: 64px; }
+  .legal-links { display: flex; gap: 56px; }
+  .legal-links a {
+    color: rgba(255, 247, 230, 0.71);
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .social-icons { display: flex; gap: 24px; }
+  .social-icons a {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff7e6; text-decoration: none;
+    transition: 0.3s;
+  }
+  .social-icons a:hover {
+    color: #e25261;
+  }
+  .social-icons svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
 
-        /* Responzivnost za mobilne ekrane */
-        @media (max-width: 768px) {
-            .coming-soon-box h1 {
-                font-size: 3.5rem;
-                text-shadow: 3px 3px 0px #12050b;
-            }
-            .coming-soon-box {
-                padding: 30px 20px;
-                background: none;
-                box-shadow: none;
-                border: none;
-            }
-            header {
-                text-align: center;
-                padding: 20px;
-            }
-        }
-    </style>
+  @media (max-width: 900px) {
+    .navbar { padding: 18px 24px; }
+    .navbar .logo { font-size: 20px; }
+    .navbar .btn { font-size: 16px; padding: 12px 16px; }
+
+    .hero-content { flex-direction: row; align-items: center; padding: 40px 24px; position: relative; overflow: hidden; }
+    .hero-text { padding-top: 0; text-align: left; max-width: 100%; position: relative; z-index: 2; }
+    .hero-text h1 { font-size: 40px; }
+    .hero-text p.sub { font-size: 18px; }
+    .hero-buttons { justify-content: flex-start; }
+    .manager-illustration { width: 440px; max-width: none; margin-left: 0; position: absolute; right: -220px; top: 25%; transform: scale(1.05); align-self: auto; z-index: 1; }
+
+    .feature { flex-direction: column; padding: 50px 24px; gap: 12px; }
+    .feature-image { width: 72vw; }
+    .feature h2 { text-align: right; font-size: 26px; width: 100%; }
+
+    .footer-cta { flex-direction: column-reverse; padding: 50px 24px; text-align: left; gap: 8px; }
+    .footer-cta .copy { align-items: flex-start; gap: 32px; }
+    .footer-cta h2 { font-size: 32px; }
+    .footer-phone { max-width: 70vw; margin-left: 0; margin-bottom: -40px; position: static; }
+
+  }
+
+  @media (max-width: 600px) {
+    .navbar { padding: 14px 16px; }
+    .navbar .logo { height: 32px; }
+    .navbar .btn { font-size: 14px; padding: 10px 12px; border-radius: 10px; gap: 7px; }
+    .navbar .btn .download-icon { width: 10px; height: 17px; }
+
+    .hero-content { gap: 36px; padding: 16px 32px 32px; min-height: 88vh; }
+    .hero-text { gap: 0; width: 100%; }
+    .hero-text h1 { font-size: clamp(34px, 11vw, 40px); }
+    .hero-text p.sub { font-size: 17px; line-height: 1.35; margin-top: 0; width: 240px; }
+    .hero-buttons { flex-direction: row; flex-wrap: nowrap; gap: 12px; width: auto; }
+    .play-now { height: 45px; font-size: 16px; padding: 0 20px; border-radius: 12px; }
+    .google-play img { width: 142px; height: 45px; }
+    .manager-illustration { width: 440px; right: -134px; top: 15%; max-width: none; transform: scale(1.12); }
+
+    .features-scroll-container { overflow: hidden; }
+    .features-track { width: max-content; flex-direction: row; transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
+    .feature { min-width: 100vw; padding: 0px 32px 56px; gap: 32px; }
+    .feature-image { width: 72vw; }
+    .feature h2 { text-align: right; font-size: clamp(22px, 7vw, 26px); line-height: 1.15; }
+
+    .footer-cta { gap: 8px; padding: 24px 32px 64px; }
+    .footer-cta .copy { gap: 24px; width: 100%; }
+    .footer-cta h2 { font-size: 32px; }
+    .footer-phone { width: min(400px, 92vw); max-width: 100%; margin-bottom: -100px; margin-right:-60px;}
+
+    .gradient-wrap {
+      background: linear-gradient(250deg, #455bb4 -71.9%, #8a254b 7.16%, #455bb4 65.48%);
+    }
+  }
+
+  /* ---------- footer: same on every page ---------- */
+  @media (max-width: 768px) {
+    .legal-bar {
+      align-items: flex-start;
+      padding: 28px 24px;
+    }
+    .legal-bar .logo { height: 32px; }
+    .legal-right { flex-direction: column; align-items: flex-end; gap: 8px; }
+    .legal-links { flex-direction: column; align-items: flex-end; gap: 8px; }
+    .legal-links a { font-size: 16px; }
+    .social-icons { gap: 16px; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo"><span>v</span>Futsal Manager</div>
-    </header>
+  <div class="gradient-wrap">
 
-    <main>
-        <div class="coming-soon-box">
-            <h1>COMING SOON</h1>
-            <p></p>
+    <div class="navbar">
+      <a href="vfutsal-landing.html" class="logo-link">
+        <img src="vFM logo.svg" alt="vFutsal Manager" class="logo">
+      </a>
+      <a href="#" class="btn">DOWNLOAD
+        <img class="download-icon" src="Group (1).svg" alt="">
+      </a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-content">
+      <div class="hero-text">
+        <h1>Futsal Like<br>Never Before</h1>
+        <p class="sub">Compete in ranked matches and build a club that wins.</p>
+        <div class="hero-buttons">
+          <a href="#" class="play-now">PLAY NOW</a>
+          <a href="#" class="google-play">
+            <img src="google-play-badge-logo-svgrepo-com.svg" alt="Get it on Google Play">
+          </a>
         </div>
-    </main>
+      </div>
+      <img class="manager-illustration" src="https://www.figma.com/api/mcp/asset/24441632-5198-4be4-bc35-82bfb8b92028.svg" alt="Futsal manager illustration">
+    </section>
+
+    <!-- FEATURES HORIZONTAL SCROLL CONTAINER -->
+    <div class="features-scroll-container">
+      <div class="features-track">
+        <!-- FEATURE 1 -->
+        <section class="feature">
+          <img class="feature-image" src="iPhone 12 Pro Max.svg" alt="vFutsal Manager app screen">
+          <h2>COMPETE AGAINST<br><span class="accent">MANAGERS</span> <span class="accent">WORLDWIDE</span></h2>
+        </section>
+
+        <!-- FEATURE 2 -->
+        <section class="feature">
+          <img class="feature-image" src="iPhone 12 Pro Max.svg" alt="vFutsal Manager app screen">
+          <h2>BUILD YOUR TEAM<br>WITH <span class="accent">REAL PLAYERS</span></h2>
+        </section>
+
+        <!-- FEATURE 3 -->
+        <section class="feature">
+          <img class="feature-image" src="iPhone 12 Pro Max.svg" alt="vFutsal Manager app screen">
+          <h2>WATCH YOUR TACTICS<br><span class="accent">COME TO LIFE</span></h2>
+        </section>
+      </div>
+    </div>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta">
+      <div class="copy">
+        <h2>PLAY NOW<br>FOR FREE</h2>
+        <div class="hero-buttons">
+          <a href="#" class="play-now">PLAY NOW</a>
+          <a href="#" class="google-play">
+            <img src="google-play-badge-logo-svgrepo-com.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+      <img class="footer-phone" src="3.svg" alt="vFutsal Manager app screen">
+    </section>
+
+  </div>
+
+  <!-- BOTTOM LEGAL BAR -->
+  <div class="legal-bar">
+    <img src="vFM logo.svg" alt="vFutsal Manager" class="logo">
+    <div class="legal-right">
+      <div class="legal-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <a href="mailto:pumpastudio@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v13H3z"/><path d="m3 6 9 7 9-7"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const scrollContainer = document.querySelector('.features-scroll-container');
+    const featuresTrack = document.querySelector('.features-track');
+    const navbar = document.querySelector('.navbar');
+    let horizontalOffset = 0;
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    let mobileSlideIndex = 0;
+
+    function applyMobileSlide() {
+      if (!featuresTrack) return;
+      featuresTrack.style.transform = `translateX(-${mobileSlideIndex * 100}vw)`;
+    }
+
+    function updateFeatureTrack() {
+      if (!scrollContainer || !featuresTrack) return;
+
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        applyMobileSlide();
+        return;
+      }
+
+      const maxDistance = Math.max(0, featuresTrack.scrollWidth - scrollContainer.clientWidth);
+      const translateX = -clamp(horizontalOffset, 0, maxDistance);
+      featuresTrack.style.transform = `translateX(${translateX}px)`;
+    }
+
+    function updateNavbar() {
+      if (!navbar) return;
+
+      const opacity = clamp(window.scrollY / 320, 0, 1);
+      navbar.style.backgroundColor = `rgba(36, 36, 34, ${opacity})`;
+    }
+
+    function handleWheel(event) {
+      if (!scrollContainer || !featuresTrack) return;
+      if (window.matchMedia('(max-width: 600px)').matches) return;
+
+      const rect = scrollContainer.getBoundingClientRect();
+      const sectionVisibleEnough = rect.top <= 20 && rect.bottom >= window.innerHeight * 0.8;
+
+      if (!sectionVisibleEnough) return;
+
+      const maxDistance = Math.max(0, featuresTrack.scrollWidth - scrollContainer.clientWidth);
+      const nextOffset = clamp(horizontalOffset + event.deltaY * 0.8, 0, maxDistance);
+
+      if (nextOffset === horizontalOffset) return;
+
+      event.preventDefault();
+      horizontalOffset = nextOffset;
+      updateFeatureTrack();
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('scroll', updateNavbar);
+    window.addEventListener('resize', updateFeatureTrack);
+    updateFeatureTrack();
+    updateNavbar();
+
+    // ---------- mobile: auto-advance the whole feature section after a delay ----------
+    (function setupMobileFeatureAutoplay() {
+      if (!scrollContainer || !featuresTrack) return;
+
+      const isMobile = () => window.matchMedia('(max-width: 600px)').matches;
+      const slideCount = document.querySelectorAll('.feature').length;
+      const AUTOPLAY_START_DELAY = 2500;
+      const AUTOPLAY_INTERVAL = 3000;
+
+      let autoplayTimer = null;
+      let startTimer = null;
+
+      function stopAutoplay() {
+        clearTimeout(startTimer);
+        clearInterval(autoplayTimer);
+        startTimer = null;
+        autoplayTimer = null;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        startTimer = setTimeout(() => {
+          autoplayTimer = setInterval(() => {
+            if (!isMobile()) { stopAutoplay(); return; }
+            mobileSlideIndex = (mobileSlideIndex + 1) % slideCount;
+            applyMobileSlide();
+          }, AUTOPLAY_INTERVAL);
+        }, AUTOPLAY_START_DELAY);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!isMobile()) { stopAutoplay(); return; }
+          if (entry.isIntersecting) {
+            startAutoplay();
+          } else {
+            stopAutoplay();
+          }
+        });
+      }, { threshold: 0.6 });
+
+      observer.observe(scrollContainer);
+
+      window.addEventListener('resize', () => {
+        if (!isMobile()) {
+          stopAutoplay();
+          mobileSlideIndex = 0;
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
