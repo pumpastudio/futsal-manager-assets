@@ -1,131 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - vFutsal Manager</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        h3 {
-            color: #2c3e50;
-            margin-top: 30px;
-            border-left: 4px solid #3498db;
-            padding-left: 10px;
-        }
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 30px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        strong {
-            color: #2c3e50;
-        }
-        .highlight {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 4px;
-            border-left: 4px solid #f5c6cb;
-            margin: 20px 0;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service - vFutsal Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: 'Outfit', sans-serif; 
+    background: #242422; 
+    overflow-x: hidden;
+    color: #fff7e6;
+  }
+
+  /* ---------- sticky navbar ---------- */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #242422;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 64px;
+  }
+
+  .navbar .logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    height: 40px;
+    width: auto;
+  }
+
+
+
+  /* ---------- Main Content ---------- */
+  .container {
+    max-width: 1512px;
+    margin: 0 auto;
+    padding: 80px 160px;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 48px;
+    color: #fff7e6;
+  }
+
+  .meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .last-updated {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255, 247, 230, 0.71);
+  }
+
+  .intro {
+    font-size: 24px;
+    color: #bfbaad;
+    line-height: 1.6;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .section h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff7e6;
+  }
+
+  .section p, .section li {
+    font-size: 24px;
+    color: rgba(255, 247, 230, 0.71);
+    line-height: 1.6;
+  }
+
+  .section ul {
+    list-style: disc;
+    padding-left: 36px;
+    margin: 24px 0;
+  }
+
+  .section li {
+    margin-bottom: 16px;
+  }
+
+  .section a {
+    color: rgba(255, 247, 230, 0.71);
+    text-decoration: underline;
+    transition: 0.3s;
+  }
+
+  .section a:hover {
+    color: #fff7e6;
+  }
+
+  .warning-box {
+    background: rgba(226, 82, 97, 0.5);
+    border-radius: 16px;
+    padding: 16px;
+    margin: 24px 0;
+  }
+
+  .warning-box p {
+    font-size: 24px;
+    color: rgba(255, 247, 230, 0.71);
+    margin: 0;
+  }
+
+  .warning-box strong {
+    color: #fff7e6;
+    font-weight: 700;
+  }
+
+  .bold-text {
+    font-weight: 700;
+    color: #fff7e6;
+  }
+
+  /* ---------- bottom legal bar ---------- */
+  .legal-bar {
+    background: #242422;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 114px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .legal-bar .logo-link { margin: 0; }
+  .legal-bar .logo { height: 40px; width: auto; }
+  .legal-links { display: flex; gap: 56px; }
+  .legal-links a {
+    color: rgba(255, 247, 230, 0.71);
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .legal-links a:hover {
+    color: #fff7e6;
+  }
+  .social-icons { display: flex; gap: 24px; }
+  .social-icons a {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff7e6; text-decoration: none;
+    transition: 0.3s;
+  }
+  .social-icons a:hover {
+    color: #e25261;
+  }
+  .social-icons svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 40px 24px;
+    }
+
+    .navbar {
+      padding: 16px 24px;
+    }
+
+    .legal-bar {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 28px 24px;
+    }
+    .legal-bar .logo-link { flex: 1 0 100%; }
+    .legal-bar .logo { height: 32px; }
+    .legal-links { flex: 1 0 100%; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .legal-links a { font-size: 16px; }
+    .social-icons { flex: 1 0 100%; justify-content: flex-end; gap: 16px; }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+    }
+
+    .section p, .section li {
+      font-size: 16px;
+    }
+  }
+</style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="vfutsal-landing.html" class="logo-link">
+      <img src="vFM logo.svg" alt="vFutsal Manager" class="logo">
+    </a>
+  </nav>
 
-<div class="container">
+  <!-- Main Content -->
+  <div class="container">
     <h1>Terms of Service</h1>
-    <div class="subtitle"><strong>Last Updated:</strong> June 2026</div>
 
-    <p>Welcome to <strong>vFutsal Manager</strong> (the "Game"). Please read these Terms of Service ("Terms") carefully before using the Game or any related services provided by <strong>Pumpa Studio</strong> ("we," "us," or "our").</p>
-    
-    <p>By accessing, downloading, or playing the Game, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access, register for, or play the Game.</p>
+    <div class="meta-info">
+      <p class="last-updated">Last updated: June 2026</p>
+      <p class="intro">Welcome to vFutsal Manager (the "Game"). Please read these Terms of Service ("Terms") carefully before using the Game or any related services provided by Pumpa Studio ("we," "us," or "our").</p>
+      <p class="intro">By accessing, downloading, or playing the Game, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access, register for, or play the Game.</p>
+    </div>
 
-    <h3>1. Account Creation and Registration</h3>
-    <ul>
+    <!-- Section 1 -->
+    <div class="section">
+      <h2>1. Account Creation and Registration</h2>
+      <ul>
         <li>To play the Game, you must create an account using a valid email address, a secure password, and a chosen team/club name. You agree to provide accurate and truthful information during this process.</li>
         <li>You are solely responsible for maintaining the confidentiality of your account credentials (including Firebase Authentication data) and for all activities that occur under your account.</li>
         <li>You must be at least 13 years old (or the minimum legal age required in your country) to register an account.</li>
-    </ul>
+      </ul>
+    </div>
 
-    <h3>2. Intellectual Property and Virtual Assets</h3>
-    <ul>
+    <!-- Section 2 -->
+    <div class="section">
+      <h2>2. Intellectual Property and Virtual Assets</h2>
+      <ul>
         <li>We grant you a personal, non-exclusive, non-transferable, revocable license to download, install, and play the Game for your personal entertainment.</li>
-        <li>All virtual assets within the Game—including but not limited to futsal players, team statistics, tactics, logos, in-game currency, and club progression data—are the sole property of <strong>Pumpa Studio</strong>.</li>
+        <li>All virtual assets within the Game—including but not limited to futsal players, team statistics, tactics, logos, in-game currency, and club progression data—are the sole property of Pumpa Studio.</li>
         <li>You do not own the virtual players or teams. You are only granted a limited, temporary license to use them within the gameplay framework.</li>
         <li>The Game is completely free-to-play and does not feature real-money In-App Purchases. Any in-game currency or assets have absolutely no real-world monetary value, cannot be redeemed for physical currency, and cannot be transferred outside of the official Game systems.</li>
-    </ul>
+      </ul>
+    </div>
 
-    <h3>3. User Conduct and Anti-Cheating Policy</h3>
-    <p>To maintain a fair and competitive environment for all managers, <strong>Pumpa Studio</strong> enforces a strict zero-tolerance policy against exploitation. You explicitly agree <strong>NOT</strong> to:</p>
-    <ul>
+    <!-- Section 3 -->
+    <div class="section">
+      <h2>3. User Conduct and Anti-Cheating Policy</h2>
+      <p>To maintain a fair and competitive environment for all managers, <span class="bold-text">Pumpa Studio</span> enforces a strict zero-tolerance policy against exploitation. You explicitly agree <span class="bold-text">NOT</span> to:</p>
+      <ul>
         <li>Use third-party software, automation tools, bots, hacks, or macros to automate gameplay or manipulate training mechanics (including bypassing daily training limits).</li>
         <li>Interfere with, intercept, or modify network database requests sent to our cloud infrastructure (including Firebase Firestore, Realtime Database, and Cloud Functions).</li>
         <li>Create or manage multiple accounts (multi-accounting) to exploit the Game's transfer market, artificially inflate player values, or engage in "bidding/currency pushing" between accounts.</li>
         <li>Choose a team, club, or manager name that is offensive, defamatory, racist, obscene, or otherwise inappropriate. We reserve the right to forcefully rename any club or suspend the account if a violation occurs.</li>
-    </ul>
-
-    <div class="highlight">
-        <strong>Warning:</strong> Any violation of this section will result in the immediate and permanent termination of your account and database record without prior warning.
+      </ul>
+      <div class="warning-box">
+        <p><strong>Warning</strong>: Any violation of this section will result in the immediate and permanent termination of your account and database record without prior warning.</p>
+      </div>
     </div>
 
-    <h3>4. Account Deletion</h3>
-    <ul>
-        <li>In compliance with global privacy standards and Google Play policies, the Game features a dedicated <strong>"Delete Account"</strong> option within the in-game settings.</li>
+    <!-- Section 4 -->
+    <div class="section">
+      <h2>4. Account Deletion</h2>
+      <ul>
+        <li>In compliance with global privacy standards and Google Play policies, the Game features a dedicated "Delete Account" option within the in-game settings.</li>
         <li>By triggering this function, you request the permanent erasure of your account. Upon deletion, your login credentials, your team, your players, and all associated progress stored within our Firebase databases will be permanently deleted and cannot be recovered.</li>
-    </ul>
+      </ul>
+    </div>
 
-    <h3>5. Service Availability and Limitation of Liability</h3>
-    <ul>
-        <li>The Game relies on cloud server hosting (Google Firebase). While we strive to keep the game online and functional, <strong>Pumpa Studio</strong> does not guarantee uninterrupted or error-free service. The Game may be temporarily unavailable due to database maintenance, cloud upgrades, or network failures.</li>
+    <!-- Section 5 -->
+    <div class="section">
+      <h2>5. Service Availability and Limitation of Liability</h2>
+      <ul>
+        <li>The Game relies on cloud server hosting (Google Firebase). While we strive to keep the game online and functional, Pumpa Studio does not guarantee uninterrupted or error-free service. The Game may be temporarily unavailable due to database maintenance, cloud upgrades, or network failures.</li>
         <li>We are not liable for any virtual losses, lost matches, or disrupted transfer market deals resulting from server downtime, software bugs, data synchronization issues, or sudden connection drops.</li>
-        <li>The Game is provided on an "AS IS" and "AS AVAILABLE" basis. To the maximum extent permitted by law, <strong>Pumpa Studio</strong> disclaims all warranties and liabilities.</li>
-    </ul>
+        <li>The Game is provided on an "AS IS" and "AS AVAILABLE" basis. To the maximum extent permitted by law, Pumpa Studio disclaims all warranties and liabilities.</li>
+      </ul>
+    </div>
 
-    <h3>6. Changes to the Terms</h3>
-    <ul>
+    <!-- Section 6 -->
+    <div class="section">
+      <h2>6. Changes to the Terms</h2>
+      <ul>
         <li>We reserve the right to update or modify these Terms at any time. Any changes will be updated with a new "Last Updated" date at the top of this document. Continued play of the Game after such modifications constitutes your full acceptance of the revised Terms.</li>
-    </ul>
+      </ul>
+    </div>
 
-    <h3>7. Contact Information</h3>
-    <p>If you have any questions, bug reports, or concerns regarding these Terms or account security, please reach out to us at:</p>
-    <ul>
-        <li><strong>Email:</strong> <a href="mailto:pumpastudio@gmail.com">pumpastudio@gmail.com</a></li>
-        <li><strong>Website:</strong> <a href="https://vfutsalmanager.com" target="_blank">https://vfutsalmanager.com</a></li>
-    </ul>
-</div>
+    <!-- Section 7 -->
+    <div class="section">
+      <h2>7. Contact Information</h2>
+      <p>If you have any questions, bug reports, or concerns regarding these Terms or account security, please reach out to us at:</p>
+      <ul>
+        <li>Email: <a href="mailto:pumpastudio@gmail.com">pumpastudio@gmail.com</a></li>
+        <li>Website: <a href="https://vfutsalmanager.com/" target="_blank">https://vfutsalmanager.com</a></li>
+      </ul>
+    </div>
+  </div>
 
+  <!-- Footer -->
+  <div class="legal-bar">
+    <a href="https://vfutsalmanager.com/" class="logo-link" style="margin: 0;">
+      <img src="vfm-logo.svg" alt="vFutsal Manager" class="logo">
+    </a>
+    <div class="legal-links">
+      <a href="https://vfutsalmanager.com/privacy-policy/">Privacy Policy</a>
+      <a href="https://vfutsalmanager.com/terms-of-service/">Terms of Service</a>
+    </div>
+    <div class="social-icons">
+      <a href="mailto:pumpastudio@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v13H3z"/><path d="m3 6 9 7 9-7"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
