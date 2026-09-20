@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>vFutsal Manager</title>
+<link rel="icon" type="image/svg+xml" href="vFM%20favicon%20gradient.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Russo+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Outfit', sans-serif; background: #242422; overflow-x: hidden; }
@@ -65,11 +66,18 @@
 
   /* ---------- one continuous gradient wrapper ---------- */
   .gradient-wrap {
-    background: linear-gradient(225deg, #8a254b 0%, #455bb4 100%);
+    background: linear-gradient(230deg, var(--blue-400, #455BB4) -52.4%, var(--red-400, #8A254B) 24.09%, var(--blue-400, #455BB4) 80.52%);
+    height: 100vh;
   }
 
   /* ---------- hero ---------- */
   .hero-content {
+    position: fixed;
+    top: 88px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,8 +102,8 @@
     max-width: 600px;
   }
   .hero-text p.sub {
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 300;
     margin-top: 0;
   }
   .hero-buttons { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
@@ -116,8 +124,8 @@
     height: auto;
     align-self: flex-start;
     margin-left: -140px;
-    transform: scale(1.05);
-    transform-origin: right center;
+    transform: scale(1.10);
+    transform-origin: left center;
     position: relative;
     z-index: 2;
   }
@@ -127,6 +135,8 @@
     overflow: hidden;
     position: relative;
     width: 100%;
+    z-index: 1;
+    background: #242422;
   }
   .features-track {
     display: flex;
@@ -196,6 +206,9 @@
     gap: 24px;
     padding: 114px 80px 114px 114px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    background: #242422;
   }
   .footer-cta .copy {
     display: flex;
@@ -230,6 +243,8 @@
     padding: 40px 114px;
     flex-wrap: wrap;
     gap: 24px;
+    position: relative;
+    z-index: 1;
   }
   .legal-bar .logo { height: 40px; width: auto; }
   .legal-right { display: flex; align-items: center; gap: 64px; }
@@ -265,12 +280,12 @@
     .navbar .logo { font-size: 20px; }
     .navbar .btn { font-size: 16px; padding: 12px 16px; }
 
-    .hero-content { flex-direction: row; align-items: center; padding: 40px 24px; position: relative; overflow: hidden; }
+    .hero-content { top: 76px; flex-direction: row; align-items: center; padding: 40px 24px; position: fixed; overflow: hidden; }
     .hero-text { padding-top: 0; text-align: left; max-width: 100%; position: relative; z-index: 2; }
     .hero-text h1 { font-size: 40px; }
     .hero-text p.sub { font-size: 18px; }
     .hero-buttons { justify-content: flex-start; }
-    .manager-illustration { width: 440px; max-width: none; margin-left: 0; position: absolute; right: -220px; top: 25%; transform: scale(1.05); align-self: auto; z-index: 1; }
+    .manager-illustration { width: 440px; max-width: none; margin-left: 0; position: absolute; right: -220px; top: 25%; transform: scale(1.15); align-self: auto; z-index: 1; }
 
     .feature { flex-direction: column; padding: 50px 24px; gap: 12px; }
     .feature-image { width: 72vw; }
@@ -289,14 +304,14 @@
     .navbar .btn { font-size: 14px; padding: 10px 12px; border-radius: 10px; gap: 7px; }
     .navbar .btn .download-icon { width: 10px; height: 17px; }
 
-    .hero-content { gap: 36px; padding: 16px 32px 32px; min-height: 88vh; }
+    .hero-content { top: 60px; gap: 36px; padding: 16px 32px 32px; min-height: 0; }
     .hero-text { gap: 0; width: 100%; }
     .hero-text h1 { font-size: clamp(34px, 11vw, 40px); }
     .hero-text p.sub { font-size: 17px; line-height: 1.35; margin-top: 0; width: 240px; }
     .hero-buttons { flex-direction: row; flex-wrap: nowrap; gap: 12px; width: auto; }
     .play-now { height: 45px; font-size: 16px; padding: 0 20px; border-radius: 12px; }
     .google-play img { width: 142px; height: 45px; }
-    .manager-illustration { width: 440px; right: -134px; top: 15%; max-width: none; transform: scale(1.12); }
+    .manager-illustration { width: 440px; right: -134px; top: 15%; max-width: none; transform: scale(1.15); }
 
     .features-scroll-container { overflow: hidden; }
     .features-track { width: max-content; flex-direction: row; transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
@@ -310,7 +325,7 @@
     .footer-phone { width: min(400px, 92vw); max-width: 100%; margin-bottom: -100px; margin-right:-60px;}
 
     .gradient-wrap {
-      background: linear-gradient(250deg, #455bb4 -71.9%, #8a254b 7.16%, #455bb4 65.48%);
+      background: linear-gradient(230deg, var(--blue-400, #455BB4) -52.4%, var(--red-400, #8A254B) 24.09%, var(--blue-400, #455BB4) 80.52%);
     }
   }
 
@@ -353,10 +368,12 @@
           </a>
         </div>
       </div>
-      <img class="manager-illustration" src="https://www.figma.com/api/mcp/asset/24441632-5198-4be4-bc35-82bfb8b92028.svg" alt="Futsal manager illustration">
+      <img class="manager-illustration" src="vFM_ilustracija_hero.svg" alt="Futsal manager illustration">
     </section>
 
-    <!-- FEATURES HORIZONTAL SCROLL CONTAINER -->
+  </div>
+
+  <!-- FEATURES HORIZONTAL SCROLL CONTAINER -->
     <div class="features-scroll-container">
       <div class="features-track">
         <!-- FEATURE 1 -->
@@ -379,7 +396,7 @@
       </div>
     </div>
 
-    <!-- FOOTER CTA -->
+  <!-- FOOTER CTA -->
     <section class="footer-cta">
       <div class="copy">
         <h2>PLAY NOW<br>FOR FREE</h2>
@@ -392,8 +409,6 @@
       </div>
       <img class="footer-phone" src="footer.svg" alt="vFutsal Manager app screen">
     </section>
-
-  </div>
 
   <!-- BOTTOM LEGAL BAR -->
   <div class="legal-bar">
@@ -461,7 +476,8 @@
       if (!sectionVisibleEnough) return;
 
       const maxDistance = Math.max(0, featuresTrack.scrollWidth - scrollContainer.clientWidth);
-      const nextOffset = clamp(horizontalOffset + event.deltaY * 0.8, 0, maxDistance);
+      const scrollDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      const nextOffset = clamp(horizontalOffset + scrollDelta * 0.8, 0, maxDistance);
 
       if (nextOffset === horizontalOffset) return;
 
