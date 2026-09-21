@@ -299,7 +299,7 @@
   }
 
   @media (max-width: 600px) {
-    .navbar { padding: 14px 16px; }
+    .navbar { position: fixed; top: 0; right: 0; left: 0; padding: 14px 16px; }
     .navbar .logo { height: 32px; }
     .navbar .btn { font-size: 14px; padding: 10px 12px; border-radius: 10px; gap: 7px; }
     .navbar .btn .download-icon { width: 10px; height: 17px; }
@@ -311,11 +311,11 @@
     .hero-buttons { flex-direction: row; flex-wrap: nowrap; gap: 12px; width: auto; }
     .play-now { height: 45px; font-size: 16px; padding: 0 20px; border-radius: 12px; }
     .google-play img { width: 142px; height: 45px; }
-    .manager-illustration { width: 440px; right: -134px; top: 15%; max-width: none; transform: scale(1.15); }
+    .manager-illustration { width: 440px; right: -70px; top: 12%; max-width: none; transform: scale(1.1); }
 
-    .features-scroll-container { overflow: hidden; }
+    .features-scroll-container { overflow: hidden; margin-top: -112px; }
     .features-track { width: max-content; flex-direction: row; transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
-    .feature { min-width: 100vw; padding: 0px 32px 56px; gap: 32px; }
+    .feature { min-width: 100vw; padding: 144px 32px 56px; gap: 32px; }
     .feature-image { width: 72vw; }
     .feature h2 { text-align: right; font-size: clamp(22px, 7vw, 26px); line-height: 1.15; }
 
@@ -333,13 +333,13 @@
   @media (max-width: 768px) {
     .legal-bar {
       align-items: flex-start;
-      padding: 28px 24px;
+      padding: 72px 24px 192px;
     }
     .legal-bar .logo { height: 32px; }
     .legal-right { flex-direction: column; align-items: flex-end; gap: 8px; }
-    .legal-links { flex-direction: column; align-items: flex-end; gap: 8px; }
+    .legal-links { position: absolute; bottom: 100px; left: 50%; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); text-align: center; }
     .legal-links a { font-size: 16px; }
-    .social-icons { gap: 16px; }
+    .social-icons { position: absolute; bottom: 28px; left: 50%; gap: 16px; transform: translateX(-50%); }
   }
 </style>
 </head>
