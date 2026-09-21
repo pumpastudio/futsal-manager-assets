@@ -280,12 +280,12 @@
     .navbar .logo { font-size: 20px; }
     .navbar .btn { font-size: 16px; padding: 12px 16px; }
 
-    .hero-content { top: 76px; flex-direction: row; align-items: center; padding: 40px 24px; position: fixed; overflow: hidden; }
+    .hero-content { top: 76px; flex-direction: column; align-items: center; justify-content: flex-start; padding: 40px 24px; position: fixed; overflow: hidden; }
     .hero-text { padding-top: 0; text-align: left; max-width: 100%; position: relative; z-index: 2; }
     .hero-text h1 { font-size: 40px; }
     .hero-text p.sub { font-size: 18px; }
     .hero-buttons { justify-content: flex-start; }
-    .manager-illustration { width: 440px; max-width: none; margin-left: 0; position: absolute; right: -220px; top: 25%; transform: scale(1.15); align-self: auto; z-index: 1; }
+    .manager-illustration { width: min(440px, 80vw); max-width: none; margin: 24px 0 0; position: static; transform: none; align-self: center; z-index: 1; }
 
     .feature { flex-direction: column; padding: 50px 24px; gap: 12px; }
     .feature-image { width: 72vw; }
@@ -304,16 +304,17 @@
     .navbar .btn { font-size: 14px; padding: 10px 12px; border-radius: 10px; gap: 7px; }
     .navbar .btn .download-icon { width: 10px; height: 17px; }
 
-    .hero-content { top: 60px; gap: 36px; padding: 16px 32px 32px; min-height: 0; }
+    .hero-content { top: 60px; gap: 36px; padding: 64px 32px 32px; min-height: 0; }
     .hero-text { gap: 0; width: 100%; }
     .hero-text h1 { font-size: clamp(34px, 11vw, 40px); }
     .hero-text p.sub { font-size: 17px; line-height: 1.35; margin-top: 0; width: 240px; }
-    .hero-buttons { flex-direction: row; flex-wrap: nowrap; gap: 12px; width: auto; }
+    .hero-text > .hero-buttons { margin-top: 32px; }
+    .hero-buttons { flex-direction: column; align-items: flex-start; flex-wrap: nowrap; gap: 12px; width: auto; }
     .play-now { height: 45px; font-size: 16px; padding: 0 20px; border-radius: 12px; }
     .google-play img { width: 142px; height: 45px; }
-    .manager-illustration { width: 440px; right: -70px; top: 12%; max-width: none; transform: scale(1.1); }
+    .manager-illustration { width: 430px; right: auto; top: auto; max-width: none; transform: translate(30px, -170px); }
 
-    .features-scroll-container { overflow: hidden; margin-top: -112px; }
+    .features-scroll-container { overflow: hidden; margin-top: 0; }
     .features-track { width: max-content; flex-direction: row; transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
     .feature { min-width: 100vw; padding: 144px 32px 56px; gap: 32px; }
     .feature-image { width: 72vw; }
