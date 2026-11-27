@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4234.93 4150.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        mask: url(#mask);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        fill: #00b1ff;
+      }
+
+      .cls-5 {
+        filter: url(#luminosity-invert);
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <filter id="luminosity-invert" x="1424.88" y="1197.49" width="2537.68" height="3085.74" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feColorMatrix result="cm" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="-863.03" y1="1538.77" x2="-159.51" y2="822.18" gradientTransform="translate(3183.8648 1573.8214) scale(1.5194 1.1803)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <mask id="mask" x="1424.88" y="1197.49" width="2537.68" height="3085.74" maskUnits="userSpaceOnUse">
+      <g class="cls-5">
+        <rect class="cls-6" x="1862.23" y="1412.41" width="1662.99" height="2655.91" transform="translate(1224.3638 -810.2309) rotate(22.0268)"/>
+      </g>
+    </mask>
+    <linearGradient id="linear-gradient-2" x1="2203.06" y1="2632.58" x2="3037.16" y2="2934.69" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff0053"/>
+      <stop offset="1" stop-color="#ff0053"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="2814.08" y1="417.24" x2="3937.5" y2="1308.22" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff0053"/>
+      <stop offset="1" stop-color="#ff0053"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-2">
+    <path class="cls-1" d="M3462.28,1880.34c-381.43,0-733.85-161-911.96-469.12l-459.78,1191.94,584.06,1547.33,862.14-2272.74c-24.63,1.72-49.55,2.58-74.46,2.58Z"/>
+  </g>
+  <path class="cls-4" d="M2574.24,4148.87h-1107.1L.21,17.95h1079.44l1494.59,4130.92Z"/>
+  <path class="cls-3" d="M4235.12,861.44c0,475.49-385.46,860.96-860.96,860.96s-860.98-385.47-860.98-860.96c0-26.52,1.19-52.76,3.55-78.68,10.02-110.59,40.95-215.15,88.84-309.68,21.39-42.27,46.2-82.54,74.02-120.46,93.7-127.76,221.83-228.69,370.7-289.14C3150.26,22.83,3259.6.45,3374.16.45c475.49,0,860.96,385.47,860.96,860.98Z"/>
+</svg>
