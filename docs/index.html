@@ -53,7 +53,7 @@
     display: block;
   }
   .navbar .btn {
-    background: #e25261;
+    background: #FF0053;
     color: #fff7e6;
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
@@ -70,7 +70,7 @@
   }
   .navbar .btn:hover {
     background: #fff7e6;
-    color: #e25261;
+    color: #FF0053;
   }
   .navbar .btn .download-icon {
     width: 12px;
@@ -79,12 +79,15 @@
     transition: filter 0.3s;
   }
   .navbar .btn:hover .download-icon {
-    filter: brightness(0) saturate(100%) invert(44%) sepia(52%) saturate(1350%) hue-rotate(312deg) brightness(91%) contrast(91%);
+    filter: brightness(0) saturate(100%) invert(13%) sepia(100%) saturate(7475%) hue-rotate(328deg) brightness(102%) contrast(110%);
   }
 
-  /* ---------- one continuous gradient wrapper ---------- */
+  /* ---------- hero background ---------- */
   .gradient-wrap {
-    background: linear-gradient(230deg, var(--blue-400, #455BB4) -52.4%, var(--red-400, #8A254B) 24.09%, var(--blue-400, #455BB4) 80.52%);
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+      url("background.png") center / cover no-repeat;
+    background-attachment: fixed;
     height: 100vh;
   }
 
@@ -105,7 +108,7 @@
   }
   .hero-text {
     max-width: 767px;
-    color: #fff7e6;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -127,13 +130,13 @@
   .hero-buttons { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
   .hero-text > .hero-buttons { margin-top: 64px; }
   .play-now {
-    background: #e25261; color: #fff7e6; font-weight: 700; font-size: 24px;
+    background: #FF0053; color: #fff7e6; font-weight: 700; font-size: 24px;
     height: auto; padding: 16px 24px; border-radius: 16px; text-decoration: none; display: inline-flex; align-items: center; border: none; cursor: pointer;
     transition: 0.3s;
   }
   .play-now:hover {
     background: #fff7e6;
-    color: #e25261;
+    color: #FF0053;
   }
   .google-play img { height: 62px; width: auto; display: block; object-fit: contain; }
   .app-store { display: block; }
@@ -216,7 +219,7 @@
     text-align: right; color: #fff7e6; font-weight: 800; font-size: 64px; line-height: 1.05;
     max-width: none; width: 100%; align-self: flex-end;
   }
-  .feature h2 .accent { color: #e25261; }
+  .feature h2 .accent { color: #FF0053; }
 
   /* ---------- footer CTA ---------- */
   .footer-cta {
@@ -282,7 +285,7 @@
     transition: 0.3s;
   }
   .social-icons a:hover {
-    color: #e25261;
+    color: #FF0053;
   }
   .social-icons svg {
     width: 28px;
