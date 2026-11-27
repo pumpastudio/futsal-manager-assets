@@ -30,8 +30,10 @@
 
   /* ---------- sticky navbar ---------- */
   .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
     z-index: 50;
     background-color: rgba(36, 36, 34, 0);
     display: flex;
@@ -317,7 +319,7 @@
   }
 
   @media (max-width: 600px) {
-    .navbar { position: fixed; top: 0; right: 0; left: 0; padding: 14px 16px; }
+    .navbar { padding: 14px 16px; }
     .navbar .logo { height: 32px; }
     .navbar .btn { font-size: 14px; padding: 10px 12px; border-radius: 10px; gap: 7px; }
     .navbar .btn .download-icon { width: 10px; height: 17px; }
